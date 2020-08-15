@@ -234,12 +234,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MapDbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="map_district_ids.cs">
-      <DependentUpon>MapDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="map_hex_ids.cs">
-      <DependentUpon>MapDbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="masscombatModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
