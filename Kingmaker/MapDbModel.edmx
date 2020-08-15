@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mapDbContext.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="map_district_ids">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_block" Type="int" Nullable="false" />
+          <Property Name="i_lot" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="map_hex_ids">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_x" Type="int" Nullable="false" />
+          <Property Name="i_y" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="mapDbContextStoreContainer">
+          <EntitySet Name="map_district_ids" EntityType="Self.map_district_ids" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="map_hex_ids" EntityType="Self.map_hex_ids" Schema="db_348648_1" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mapDbContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="map_hex_ids">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_x" Type="Int32" Nullable="false" />
+          <Property Name="i_y" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MapContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="map_hex_ids" EntityType="Self.map_hex_ids" />
+          <EntitySet Name="map_district_ids" EntityType="mapDbContext.map_district_ids" />
+        </EntityContainer>
+        <EntityType Name="map_district_ids">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_block" Type="Int32" Nullable="false" />
+          <Property Name="i_lot" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mapDbContextStoreContainer" CdmEntityContainer="MapContext">
+          <EntitySetMapping Name="map_hex_ids">
+            <EntityTypeMapping TypeName="mapDbContext.map_hex_ids">
+              <MappingFragment StoreEntitySet="map_hex_ids">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_x" ColumnName="i_x" />
+                <ScalarProperty Name="i_y" ColumnName="i_y" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="map_district_ids">
+            <EntityTypeMapping TypeName="mapDbContext.map_district_ids">
+              <MappingFragment StoreEntitySet="map_district_ids">
+                <ScalarProperty Name="i_lot" ColumnName="i_lot" />
+                <ScalarProperty Name="i_block" ColumnName="i_block" />
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

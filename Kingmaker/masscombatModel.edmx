@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Königsmacher.MassCombat.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="masscombat_abilities_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_ability_id" Type="int" Nullable="false" />
+          <Property Name="i_race_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_abilities_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_ability_id" Type="int" Nullable="false" />
+          <Property Name="i_unit_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_ability">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_ability" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="vc_tooltip" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="vc_description" Type="varchar" MaxLength="10000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_command">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_command" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="i_command_variable" Type="int" Nullable="false" />
+          <Property Name="vc_tooltip" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="vc_description" Type="varchar" MaxLength="10000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_commander">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_commander" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="i_charisma" Type="int" Nullable="false" />
+          <Property Name="i_mental_ability" Type="int" Nullable="false" />
+          <Property Name="i_profession_soldier" Type="int" Nullable="false" />
+          <Property Name="i_bonus_melee" Type="int" Nullable="false" />
+          <Property Name="i_bonus_ranged" Type="int" Nullable="false" />
+          <Property Name="i_bonus_defensive" Type="int" Nullable="false" />
+          <Property Name="i_bonus_health" Type="int" Nullable="false" />
+          <Property Name="i_bonus_morale" Type="int" Nullable="false" />
+          <Property Name="i_bonus_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_bonus_reflex" Type="int" Nullable="false" />
+          <Property Name="i_bonus_upkeep" Type="int" Nullable="false" />
+          <Property Name="b_council_position" Type="bool" Nullable="false" />
+          <Property Name="i_leadership_role_id" Type="int" Nullable="false" />
+          <Property Name="i_hit_dice" Type="int" Nullable="false" />
+          <Property Name="b_feat_leadership" Type="bool" Nullable="false" />
+          <Property Name="i_bonus_leadership" Type="int" Nullable="false" />
+          <Property Name="i_faction_id" Type="int" />
+          <Property Name="t_token" Type="text" />
+        </EntityType>
+        <EntityType Name="masscombat_commands_to_commander">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_command_id" Type="int" Nullable="false" />
+          <Property Name="i_commander_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_equipment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_armor_movement">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_base" Type="int" Nullable="false" />
+          <Property Name="i_medium" Type="int" Nullable="false" />
+          <Property Name="i_heavy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_costs">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_equipment_id" Type="int" Nullable="false" />
+          <Property Name="i_unit_size_id" Type="int" Nullable="false" />
+          <Property Name="fl_costs" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_equipment_id" Type="int" Nullable="false" />
+          <Property Name="i_unit_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_faction">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_faction" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_leadership_role_command">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_leadership_role" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="b_main_department" Type="bool" Nullable="false" />
+          <Property Name="i_command_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_level">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_level" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="i_threat" Type="int" Nullable="false" />
+          <Property Name="i_xp_needed" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotion">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_promotion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="vc_description" Type="varchar" MaxLength="10000" Nullable="false" />
+          <Property Name="vc_tooltip" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotions_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_promotion_id" Type="int" Nullable="false" />
+          <Property Name="i_race_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotions_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_promotion_id" Type="int" Nullable="false" />
+          <Property Name="i_unit_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_race" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="i_kind" Type="int" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="i_threat" Type="int" Nullable="false" />
+          <Property Name="b_mount" Type="bool" Nullable="false" />
+          <Property Name="i_charisma_base" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_size">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_size" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="i_health" Type="int" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="i_value" Type="int" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="i_threat_bonus" Type="int" Nullable="false" />
+          <Property Name="i_squares" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_specialization">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_specialization" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+          <Property Name="t_description" Type="text" />
+        </EntityType>
+        <EntityType Name="masscombat_tactic">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_tactic" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="vc_description" Type="varchar" MaxLength="10000" Nullable="false" />
+          <Property Name="vc_tooltip" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_tactics_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_tactic_id" Type="int" Nullable="false" />
+          <Property Name="i_race_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_tactics_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_tactic_id" Type="int" Nullable="false" />
+          <Property Name="i_unit_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_type">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_type" Type="varchar" MaxLength="25" />
+          <Property Name="i_melee" Type="int" Nullable="false" />
+          <Property Name="i_ranged" Type="int" Nullable="false" />
+          <Property Name="i_defensive" Type="int" Nullable="false" />
+          <Property Name="fl_health" Type="float" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="float" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="int" Nullable="false" />
+          <Property Name="i_morale" Type="int" Nullable="false" />
+          <Property Name="i_fortitude" Type="int" Nullable="false" />
+          <Property Name="i_reflex" Type="int" Nullable="false" />
+          <Property Name="fl_value" Type="float" Nullable="false" />
+          <Property Name="fl_upkeep" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vc_unit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="i_size_id" Type="int" Nullable="false" />
+          <Property Name="i_type_id" Type="int" Nullable="false" />
+          <Property Name="i_level_id" Type="int" Nullable="false" />
+          <Property Name="i_xp" Type="int" Nullable="false" />
+          <Property Name="i_specialization_id" Type="int" Nullable="false" />
+          <Property Name="i_race_id" Type="int" Nullable="false" />
+          <Property Name="i_faction_id" Type="int" Nullable="false" />
+          <Property Name="i_commander_id" Type="int" Nullable="false" />
+          <Property Name="t_icon" Type="text" />
+          <Property Name="i_mount_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KönigsmacherMassCombatStoreContainer">
+          <EntitySet Name="masscombat_abilities_to_race" EntityType="Self.masscombat_abilities_to_race" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_abilities_to_unit" EntityType="Self.masscombat_abilities_to_unit" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_ability" EntityType="Self.masscombat_ability" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_command" EntityType="Self.masscombat_command" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_commander" EntityType="Self.masscombat_commander" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_commands_to_commander" EntityType="Self.masscombat_commands_to_commander" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_equipment" EntityType="Self.masscombat_equipment" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_equipment_armor_movement" EntityType="Self.masscombat_equipment_armor_movement" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_equipment_costs" EntityType="Self.masscombat_equipment_costs" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_equipment_to_unit" EntityType="Self.masscombat_equipment_to_unit" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_faction" EntityType="Self.masscombat_faction" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_leadership_role_command" EntityType="Self.masscombat_leadership_role_command" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_level" EntityType="Self.masscombat_level" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_promotion" EntityType="Self.masscombat_promotion" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_promotions_to_race" EntityType="Self.masscombat_promotions_to_race" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_promotions_to_unit" EntityType="Self.masscombat_promotions_to_unit" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_race" EntityType="Self.masscombat_race" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_size" EntityType="Self.masscombat_size" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_specialization" EntityType="Self.masscombat_specialization" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_tactic" EntityType="Self.masscombat_tactic" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_tactics_to_race" EntityType="Self.masscombat_tactics_to_race" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_tactics_to_unit" EntityType="Self.masscombat_tactics_to_unit" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_type" EntityType="Self.masscombat_type" Schema="db_348648_1" store:Type="Tables" />
+          <EntitySet Name="masscombat_unit" EntityType="Self.masscombat_unit" Schema="db_348648_1" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Königsmacher.MassCombat" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="masscombat_abilities_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_ability_id" Type="Int32" Nullable="false" />
+          <Property Name="i_race_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_abilities_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_ability_id" Type="Int32" Nullable="false" />
+          <Property Name="i_unit_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_ability">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_ability" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="vc_tooltip" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vc_description" Type="String" MaxLength="10000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_command">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_command" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_command_variable" Type="Int32" Nullable="false" />
+          <Property Name="vc_tooltip" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vc_description" Type="String" MaxLength="10000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_commander">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_commander" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_charisma" Type="Int32" Nullable="false" />
+          <Property Name="i_mental_ability" Type="Int32" Nullable="false" />
+          <Property Name="i_profession_soldier" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_defensive" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_health" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_reflex" Type="Int32" Nullable="false" />
+          <Property Name="i_bonus_upkeep" Type="Int32" Nullable="false" />
+          <Property Name="b_council_position" Type="Boolean" Nullable="false" />
+          <Property Name="i_leadership_role_id" Type="Int32" Nullable="false" />
+          <Property Name="i_hit_dice" Type="Int32" Nullable="false" />
+          <Property Name="b_feat_leadership" Type="Boolean" Nullable="false" />
+          <Property Name="i_bonus_leadership" Type="Int32" Nullable="false" />
+          <Property Name="i_faction_id" Type="Int32" />
+          <Property Name="t_token" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="masscombat_commands_to_commander">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_command_id" Type="Int32" Nullable="false" />
+          <Property Name="i_commander_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_equipment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_armor_movement">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_base" Type="Int32" Nullable="false" />
+          <Property Name="i_medium" Type="Int32" Nullable="false" />
+          <Property Name="i_heavy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_costs">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_equipment_id" Type="Int32" Nullable="false" />
+          <Property Name="i_unit_size_id" Type="Int32" Nullable="false" />
+          <Property Name="fl_costs" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_equipment_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_equipment_id" Type="Int32" Nullable="false" />
+          <Property Name="i_unit_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_leadership_role_command">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_leadership_role" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="b_main_department" Type="Boolean" Nullable="false" />
+          <Property Name="i_command_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_level">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_level" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="i_threat" Type="Int32" Nullable="false" />
+          <Property Name="i_xp_needed" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotion">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_promotion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="vc_description" Type="String" MaxLength="10000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vc_tooltip" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotions_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_promotion_id" Type="Int32" Nullable="false" />
+          <Property Name="i_race_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_promotions_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_promotion_id" Type="Int32" Nullable="false" />
+          <Property Name="i_unit_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_race" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_kind" Type="Int32" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="i_threat" Type="Int32" Nullable="false" />
+          <Property Name="b_mount" Type="Boolean" Nullable="false" />
+          <Property Name="i_charisma_base" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_size">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_size" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="i_health" Type="Int32" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="i_value" Type="Int32" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="i_threat_bonus" Type="Int32" Nullable="false" />
+          <Property Name="i_squares" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_specialization">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_specialization" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+          <Property Name="t_description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="masscombat_tactic">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_tactic" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vc_description" Type="String" MaxLength="10000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vc_tooltip" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_tactics_to_race">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_tactic_id" Type="Int32" Nullable="false" />
+          <Property Name="i_race_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_tactics_to_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_tactic_id" Type="Int32" Nullable="false" />
+          <Property Name="i_unit_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_type">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="i_melee" Type="Int32" Nullable="false" />
+          <Property Name="i_ranged" Type="Int32" Nullable="false" />
+          <Property Name="i_defensive" Type="Int32" Nullable="false" />
+          <Property Name="fl_health" Type="Single" Nullable="false" />
+          <Property Name="fl_movement_strategically" Type="Single" Nullable="false" />
+          <Property Name="i_movement_tactical" Type="Int32" Nullable="false" />
+          <Property Name="i_morale" Type="Int32" Nullable="false" />
+          <Property Name="i_fortitude" Type="Int32" Nullable="false" />
+          <Property Name="i_reflex" Type="Int32" Nullable="false" />
+          <Property Name="fl_value" Type="Single" Nullable="false" />
+          <Property Name="fl_upkeep" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="masscombat_unit">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_unit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="i_size_id" Type="Int32" Nullable="false" />
+          <Property Name="i_type_id" Type="Int32" Nullable="false" />
+          <Property Name="i_level_id" Type="Int32" Nullable="false" />
+          <Property Name="i_xp" Type="Int32" Nullable="false" />
+          <Property Name="i_specialization_id" Type="Int32" Nullable="false" />
+          <Property Name="i_race_id" Type="Int32" Nullable="false" />
+          <Property Name="i_faction_id" Type="Int32" Nullable="false" />
+          <Property Name="i_commander_id" Type="Int32" Nullable="false" />
+          <Property Name="t_icon" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="i_mount_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MasscombatContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="masscombat_abilities_to_race" EntityType="Self.masscombat_abilities_to_race" />
+          <EntitySet Name="masscombat_abilities_to_unit" EntityType="Self.masscombat_abilities_to_unit" />
+          <EntitySet Name="masscombat_ability" EntityType="Self.masscombat_ability" />
+          <EntitySet Name="masscombat_command" EntityType="Self.masscombat_command" />
+          <EntitySet Name="masscombat_commander" EntityType="Self.masscombat_commander" />
+          <EntitySet Name="masscombat_commands_to_commander" EntityType="Self.masscombat_commands_to_commander" />
+          <EntitySet Name="masscombat_equipment" EntityType="Self.masscombat_equipment" />
+          <EntitySet Name="masscombat_equipment_armor_movement" EntityType="Self.masscombat_equipment_armor_movement" />
+          <EntitySet Name="masscombat_equipment_costs" EntityType="Self.masscombat_equipment_costs" />
+          <EntitySet Name="masscombat_equipment_to_unit" EntityType="Self.masscombat_equipment_to_unit" />
+          <EntitySet Name="masscombat_leadership_role_command" EntityType="Self.masscombat_leadership_role_command" />
+          <EntitySet Name="masscombat_level" EntityType="Self.masscombat_level" />
+          <EntitySet Name="masscombat_promotion" EntityType="Self.masscombat_promotion" />
+          <EntitySet Name="masscombat_promotions_to_race" EntityType="Self.masscombat_promotions_to_race" />
+          <EntitySet Name="masscombat_promotions_to_unit" EntityType="Self.masscombat_promotions_to_unit" />
+          <EntitySet Name="masscombat_race" EntityType="Self.masscombat_race" />
+          <EntitySet Name="masscombat_size" EntityType="Self.masscombat_size" />
+          <EntitySet Name="masscombat_specialization" EntityType="Self.masscombat_specialization" />
+          <EntitySet Name="masscombat_tactic" EntityType="Self.masscombat_tactic" />
+          <EntitySet Name="masscombat_tactics_to_race" EntityType="Self.masscombat_tactics_to_race" />
+          <EntitySet Name="masscombat_tactics_to_unit" EntityType="Self.masscombat_tactics_to_unit" />
+          <EntitySet Name="masscombat_type" EntityType="Self.masscombat_type" />
+          <EntitySet Name="masscombat_unit" EntityType="Self.masscombat_unit" />
+          <EntitySet Name="masscombat_faction" EntityType="Königsmacher.MassCombat.masscombat_faction" />
+        </EntityContainer>
+        <EntityType Name="masscombat_faction">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vc_faction" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KönigsmacherMassCombatStoreContainer" CdmEntityContainer="MasscombatContext">
+          <EntitySetMapping Name="masscombat_abilities_to_race">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_abilities_to_race">
+              <MappingFragment StoreEntitySet="masscombat_abilities_to_race">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_ability_id" ColumnName="i_ability_id" />
+                <ScalarProperty Name="i_race_id" ColumnName="i_race_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_abilities_to_unit">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_abilities_to_unit">
+              <MappingFragment StoreEntitySet="masscombat_abilities_to_unit">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_ability_id" ColumnName="i_ability_id" />
+                <ScalarProperty Name="i_unit_id" ColumnName="i_unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_ability">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_ability">
+              <MappingFragment StoreEntitySet="masscombat_ability">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_ability" ColumnName="vc_ability" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="vc_tooltip" ColumnName="vc_tooltip" />
+                <ScalarProperty Name="vc_description" ColumnName="vc_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_command">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_command">
+              <MappingFragment StoreEntitySet="masscombat_command">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_command" ColumnName="vc_command" />
+                <ScalarProperty Name="i_command_variable" ColumnName="i_command_variable" />
+                <ScalarProperty Name="vc_tooltip" ColumnName="vc_tooltip" />
+                <ScalarProperty Name="vc_description" ColumnName="vc_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_commander">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_commander">
+              <MappingFragment StoreEntitySet="masscombat_commander">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_commander" ColumnName="vc_commander" />
+                <ScalarProperty Name="i_charisma" ColumnName="i_charisma" />
+                <ScalarProperty Name="i_mental_ability" ColumnName="i_mental_ability" />
+                <ScalarProperty Name="i_profession_soldier" ColumnName="i_profession_soldier" />
+                <ScalarProperty Name="i_bonus_melee" ColumnName="i_bonus_melee" />
+                <ScalarProperty Name="i_bonus_ranged" ColumnName="i_bonus_ranged" />
+                <ScalarProperty Name="i_bonus_defensive" ColumnName="i_bonus_defensive" />
+                <ScalarProperty Name="i_bonus_health" ColumnName="i_bonus_health" />
+                <ScalarProperty Name="i_bonus_morale" ColumnName="i_bonus_morale" />
+                <ScalarProperty Name="i_bonus_fortitude" ColumnName="i_bonus_fortitude" />
+                <ScalarProperty Name="i_bonus_reflex" ColumnName="i_bonus_reflex" />
+                <ScalarProperty Name="i_bonus_upkeep" ColumnName="i_bonus_upkeep" />
+                <ScalarProperty Name="b_council_position" ColumnName="b_council_position" />
+                <ScalarProperty Name="i_leadership_role_id" ColumnName="i_leadership_role_id" />
+                <ScalarProperty Name="i_hit_dice" ColumnName="i_hit_dice" />
+                <ScalarProperty Name="b_feat_leadership" ColumnName="b_feat_leadership" />
+                <ScalarProperty Name="i_bonus_leadership" ColumnName="i_bonus_leadership" />
+                <ScalarProperty Name="i_faction_id" ColumnName="i_faction_id" />
+                <ScalarProperty Name="t_token" ColumnName="t_token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_commands_to_commander">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_commands_to_commander">
+              <MappingFragment StoreEntitySet="masscombat_commands_to_commander">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_command_id" ColumnName="i_command_id" />
+                <ScalarProperty Name="i_commander_id" ColumnName="i_commander_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_equipment">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_equipment">
+              <MappingFragment StoreEntitySet="masscombat_equipment">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_equipment" ColumnName="vc_equipment" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_equipment_armor_movement">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_equipment_armor_movement">
+              <MappingFragment StoreEntitySet="masscombat_equipment_armor_movement">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_base" ColumnName="i_base" />
+                <ScalarProperty Name="i_medium" ColumnName="i_medium" />
+                <ScalarProperty Name="i_heavy" ColumnName="i_heavy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_equipment_costs">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_equipment_costs">
+              <MappingFragment StoreEntitySet="masscombat_equipment_costs">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_equipment_id" ColumnName="i_equipment_id" />
+                <ScalarProperty Name="i_unit_size_id" ColumnName="i_unit_size_id" />
+                <ScalarProperty Name="fl_costs" ColumnName="fl_costs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_equipment_to_unit">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_equipment_to_unit">
+              <MappingFragment StoreEntitySet="masscombat_equipment_to_unit">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_equipment_id" ColumnName="i_equipment_id" />
+                <ScalarProperty Name="i_unit_id" ColumnName="i_unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_leadership_role_command">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_leadership_role_command">
+              <MappingFragment StoreEntitySet="masscombat_leadership_role_command">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_leadership_role" ColumnName="vc_leadership_role" />
+                <ScalarProperty Name="b_main_department" ColumnName="b_main_department" />
+                <ScalarProperty Name="i_command_id" ColumnName="i_command_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_level">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_level">
+              <MappingFragment StoreEntitySet="masscombat_level">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_level" ColumnName="vc_level" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="i_threat" ColumnName="i_threat" />
+                <ScalarProperty Name="i_xp_needed" ColumnName="i_xp_needed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_promotion">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_promotion">
+              <MappingFragment StoreEntitySet="masscombat_promotion">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_promotion" ColumnName="vc_promotion" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="vc_description" ColumnName="vc_description" />
+                <ScalarProperty Name="vc_tooltip" ColumnName="vc_tooltip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_promotions_to_race">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_promotions_to_race">
+              <MappingFragment StoreEntitySet="masscombat_promotions_to_race">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_promotion_id" ColumnName="i_promotion_id" />
+                <ScalarProperty Name="i_race_id" ColumnName="i_race_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_promotions_to_unit">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_promotions_to_unit">
+              <MappingFragment StoreEntitySet="masscombat_promotions_to_unit">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_promotion_id" ColumnName="i_promotion_id" />
+                <ScalarProperty Name="i_unit_id" ColumnName="i_unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_race">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_race">
+              <MappingFragment StoreEntitySet="masscombat_race">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_race" ColumnName="vc_race" />
+                <ScalarProperty Name="i_kind" ColumnName="i_kind" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="i_threat" ColumnName="i_threat" />
+                <ScalarProperty Name="b_mount" ColumnName="b_mount" />
+                <ScalarProperty Name="i_charisma_base" ColumnName="i_charisma_base" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_size">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_size">
+              <MappingFragment StoreEntitySet="masscombat_size">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_size" ColumnName="vc_size" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="i_health" ColumnName="i_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="i_value" ColumnName="i_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="i_threat_bonus" ColumnName="i_threat_bonus" />
+                <ScalarProperty Name="i_squares" ColumnName="i_squares" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_specialization">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_specialization">
+              <MappingFragment StoreEntitySet="masscombat_specialization">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_specialization" ColumnName="vc_specialization" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+                <ScalarProperty Name="t_description" ColumnName="t_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_tactic">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_tactic">
+              <MappingFragment StoreEntitySet="masscombat_tactic">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_tactic" ColumnName="vc_tactic" />
+                <ScalarProperty Name="vc_description" ColumnName="vc_description" />
+                <ScalarProperty Name="vc_tooltip" ColumnName="vc_tooltip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_tactics_to_race">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_tactics_to_race">
+              <MappingFragment StoreEntitySet="masscombat_tactics_to_race">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_tactic_id" ColumnName="i_tactic_id" />
+                <ScalarProperty Name="i_race_id" ColumnName="i_race_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_tactics_to_unit">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_tactics_to_unit">
+              <MappingFragment StoreEntitySet="masscombat_tactics_to_unit">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="i_tactic_id" ColumnName="i_tactic_id" />
+                <ScalarProperty Name="i_unit_id" ColumnName="i_unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_type">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_type">
+              <MappingFragment StoreEntitySet="masscombat_type">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_type" ColumnName="vc_type" />
+                <ScalarProperty Name="i_melee" ColumnName="i_melee" />
+                <ScalarProperty Name="i_ranged" ColumnName="i_ranged" />
+                <ScalarProperty Name="i_defensive" ColumnName="i_defensive" />
+                <ScalarProperty Name="fl_health" ColumnName="fl_health" />
+                <ScalarProperty Name="fl_movement_strategically" ColumnName="fl_movement_strategically" />
+                <ScalarProperty Name="i_movement_tactical" ColumnName="i_movement_tactical" />
+                <ScalarProperty Name="i_morale" ColumnName="i_morale" />
+                <ScalarProperty Name="i_fortitude" ColumnName="i_fortitude" />
+                <ScalarProperty Name="i_reflex" ColumnName="i_reflex" />
+                <ScalarProperty Name="fl_value" ColumnName="fl_value" />
+                <ScalarProperty Name="fl_upkeep" ColumnName="fl_upkeep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_unit">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_unit">
+              <MappingFragment StoreEntitySet="masscombat_unit">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="vc_unit" ColumnName="vc_unit" />
+                <ScalarProperty Name="i_size_id" ColumnName="i_size_id" />
+                <ScalarProperty Name="i_type_id" ColumnName="i_type_id" />
+                <ScalarProperty Name="i_level_id" ColumnName="i_level_id" />
+                <ScalarProperty Name="i_xp" ColumnName="i_xp" />
+                <ScalarProperty Name="i_specialization_id" ColumnName="i_specialization_id" />
+                <ScalarProperty Name="i_race_id" ColumnName="i_race_id" />
+                <ScalarProperty Name="i_faction_id" ColumnName="i_faction_id" />
+                <ScalarProperty Name="i_commander_id" ColumnName="i_commander_id" />
+                <ScalarProperty Name="t_icon" ColumnName="t_icon" />
+                <ScalarProperty Name="i_mount_id" ColumnName="i_mount_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masscombat_faction">
+            <EntityTypeMapping TypeName="Königsmacher.MassCombat.masscombat_faction">
+              <MappingFragment StoreEntitySet="masscombat_faction">
+                <ScalarProperty Name="vc_faction" ColumnName="vc_faction" />
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

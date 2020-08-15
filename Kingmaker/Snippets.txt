@@ -1,0 +1,35 @@
+﻿  <system.serviceModel>
+    <services>
+      <service name="Kingmaker.Network.Service">
+        <endpoint address="" binding="netTcpBinding" bindingConfiguration=""
+          contract="Kingmaker.Network.IServiceInbound">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexTcpBinding" bindingConfiguration=""
+          contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="net.tcp://localhost:8888/Service" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="">
+          <serviceMetadata httpGetEnabled="false"/>
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <client>
+      <endpoint address="net.tcp://localhost:8888/Service" binding="netTcpBinding" contract="Kingmaker.Network.IServiceInbound"
+          name="Client">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+    </client>
+  </system.serviceModel>
