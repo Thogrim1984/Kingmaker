@@ -32,18 +32,18 @@ namespace Kingmaker
 
         public static void ExecuteExample()
         {
-            //using (var db = new MapContext())
-            //{
-            //    for (int i = 1; i < 10; i++)
-            //    {
-            //        for (int x = 1; x < 5; x++)
-            //        {
-            //            var lot = new map_district_ids { i_lot = x, i_block = i };
-            //            db.map_district_ids.Add(lot);
-            //            db.SaveChanges();
-            //        }
-            //    }
-            //}
+            using (var db = new MapContext())
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    for (int x = 1; x < 5; x++)
+                    {
+                        var lot = new map_district_ids { i_lot = x, i_block = i };
+                        db.map_district_ids.Add(lot);
+                        db.SaveChanges();
+                    }
+                }
+            }
 
             //var uris = new Uri[1];
             //string adr = "net.tcp://localhost:8888/Service";
